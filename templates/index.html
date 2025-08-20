@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Translator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="model-settings-group">
+      <div class="models-center">
+          <select id="savedModelsDropdown" onchange="onSavedModelChange(this.value)"></select>
+        </div>
+      <button onclick="window.openModal()">⚙️</button>
+    </div>
+  </div>
+
+  <div class="main-container">
+    <div class="language-bar">
+      <div id="detectedLangLabel" class="language-label"><strong>Detected</strong></div>
+      <div class="target-languages-desktop">
+        <span class="active-lang" onclick="window.setTargetLang('en')">English</span> |
+        <span onclick="window.setTargetLang('hi')">Hindi</span> |
+        <span onclick="window.setTargetLang('bn')">Bengali</span> ▶
+      </div>
+    </div>
+
+    <div class="translator-box">
+      <div class="panel panel-left">
+        <div class="language-selection-mobile">
+          <div id="detectedLangLabelMobile" class="language-label"><strong>Detected</strong></div>
+        </div>
+        <textarea id="inputText" placeholder="Enter text..."></textarea>
+        <button class="copy-btn" onclick="window.copyText('inputText', this)">📋</button>
+        <div class="char-count" id="charCount">0 / 5000</div>
+      </div>
+
+      <button class="switch-btn" onclick="window.switchLanguages()">⇄</button>
+
+      <div class="panel panel-right">
+        <div class="language-selection-mobile">
+          <div class="target-languages-mobile">
+            <span class="active-lang" onclick="window.setTargetLang('en')">English</span> |
+            <span onclick="window.setTargetLang('hi')">Hindi</span> |
+            <span onclick="window.setTargetLang('bn')">Bengali</span> ▶
+          </div>
+        </div>
+        <div id="outputText" class="output-content" readonly></div>
+        <button class="copy-btn" onclick="window.copyText('outputText', this)">📋</button>
+      </div>
+    </div>
+
+    <button class="translate-btn">Translate</button>
+  </div>
+
+  <div id="settingsModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="window.closeModal()">&times;</span>
+      <h2>Setting</h2>
+      <div class="modal-tabs">
+        <button class="tab-button active" onclick="window.showSettingsPanel('apiConfigPanel')">API Config</button>
+        <button class="tab-button" onclick="window.showSettingsPanel('translationModePanel')">Translation Mode</button>
+      </div>
+
+      <div id="apiConfigPanel" class="modal-panel active">
+        <label for="defaultEngineSelect">Default Translation Engine:</label>
+        <select id="defaultEngineSelect" style="width:100%;padding:6px;margin-bottom:10px;">
+          <option value="openai">OpenAI</option>
+          <option value="openrouter">OpenRouter</option>
+          <option value="gemini">Gemini</option>
+          <option value="ollama">Ollama</option>
+          <option value="lmstudio">LM Studio</option>
+        </select>
+        <label for="apiModelSelect">AI Model:</label>
+        <select id="apiModelSelect" style="width:100%;padding:6px;margin-bottom:10px;"></select>
+        <label for="apiKeyInput">API Key for Selected Engine:</label>
+        <input type="text" id="apiKeyInput" style="width:100%;padding:6px;" placeholder="Enter your API key" />
+        <button id="fetchModelsBtn" style="width:100%;padding:10px;margin-top:10px;margin-bottom:10px;background:#4CAF50;color:white;border:none;border-radius:4px;cursor:pointer;">Fetch Models</button>
+        <div id="settingsError" style="color: red; margin-bottom: 10px;"></div>
+        <button id="saveSettingsBtn" style="width:100%;padding:10px;margin-top:15px;background:#1a73e8;color:white;border:none;border-radius:4px;cursor:pointer;">Save</button>
+      </div>
+
+      <div id="translationModePanel" class="modal-panel" style="display:none;">
+        <h2>Translation Mode</h2>
+        <label for="modeSelect">Select Mode:</label>
+        <select id="modeSelect" style="width:100%;padding:6px;margin-bottom:10px;">
+          <option value="only_translate">Only translate</option>
+          <option value="prompt_translator">Prompt translator</option>
+          <option value="master_translate">Master translate</option>
+        </select>
+        <label for="modePrompt">Prompt:</label>
+        <textarea id="modePrompt" style="width:100%;padding:6px;margin-bottom:10px;height:150px;resize:vertical;"></textarea>
+        <div style="margin-bottom:10px;">
+          <input type="checkbox" id="thinkingToggle">
+          <label for="thinkingToggle">Enable Thinking Mode</label>
+        </div>
+        <button id="saveTranslationModeBtn" style="width:100%;padding:10px;margin-top:15px;background:#1a73e8;color:white;border:none;border-radius:4px;cursor:pointer;">Save Translation Mode</button>
+        <button id="resetPromptBtn" style="width:100%;padding:10px;margin-top:10px;background:#f44336;color:white;border:none;border-radius:4px;cursor:pointer;">Reset to Default Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

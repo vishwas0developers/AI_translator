@@ -1,0 +1,90 @@
+{
+  "default_engine": "lmstudio",
+  "default_model": "openai/gpt-oss-20b",
+  "engines": {
+    "openai": {
+      "api_key": "API key",
+      "endpoint": "https://api.openai.com/v1/chat/completions"
+    },
+    "gemini": {
+      "api_key": "API key",
+      "endpoint": "https://generativelanguage.googleapis.com/v1beta/models"
+    },
+    "openrouter": {
+      "api_key": "API key",
+      "endpoint": "https://openrouter.ai/api/v1/chat/completions"
+    },
+    "ollama": {
+      "api_key": "",
+      "endpoint": "http://localhost:11434/api/chat"
+    },
+    "lmstudio": {
+      "api_key": "",
+      "endpoint": "http://localhost:1234/v1/chat/completions"
+    }
+  },
+  "saved_models": [
+    {
+      "engine": "openai",
+      "model_id": "gpt-4.1-mini",
+      "display_name": "OpenAI · gpt-4.1-mini",
+      "added_at": "2025-08-15T17:35:20.089747",
+      "api_key_hash": "API key hash auto-generated."
+    },
+    {
+      "engine": "openrouter",
+      "model_id": "qwen/qwen3-235b-a22b:free",
+      "display_name": "OpenRouter · qwen/qwen3-235b-a22b:free",
+      "added_at": "2025-08-15T17:35:49.586813",
+      "api_key_hash": "API key hash auto-generated."
+    },
+    {
+      "engine": "gemini",
+      "model_id": "gemini-2.0-flash-lite",
+      "display_name": "Gemini · gemini-2.0-flash-lite",
+      "added_at": "2025-08-15T17:36:26.617644",
+      "api_key_hash": "API key hash auto-generated."
+    },
+    {
+      "engine": "gemini",
+      "model_id": "gemini-2.5-flash",
+      "display_name": "Gemini · gemini-2.5-flash",
+      "added_at": "2025-08-15T17:36:49.984554",
+      "api_key_hash": "API key hash auto-generated."
+    },
+    {
+      "engine": "ollama",
+      "model_id": "qwen3:latest",
+      "display_name": "Ollama · qwen3:latest",
+      "added_at": "2025-08-17T18:11:24.868949",
+      "api_key_hash": ""
+    },
+    {
+      "engine": "lmstudio",
+      "model_id": "openai/gpt-oss-20b",
+      "display_name": "LM Studio · openai/gpt-oss-20b",
+      "added_at": "2025-08-17T19:17:47.219126",
+      "api_key_hash": ""
+    },
+    {
+      "engine": "gemini",
+      "model_id": "gemini-2.0-flash",
+      "display_name": "Gemini · gemini-2.0-flash",
+      "added_at": "2025-08-19T13:26:57.020292",
+      "api_key_hash": "API key hash auto-generated."
+    }
+  ],
+  "translation_modes": {
+    "default_mode": "prompt_translator",
+    "presets": {
+      "only_translate": "You are a professional translator. Translate strictly into {{TARGET_LANG}}. Keep meaning, tone, numbers, names, code. No extra commentary.",
+      "prompt_translator": "Act as a prompt translator. Convert the user text into a clear, concise {{TARGET_LANG}} prompt for an AI model. Keep intent, constraints, and structure.",
+      "master_translate": "You are a master literary and technical translator. Translate into natural, idiomatic {{TARGET_LANG}}; preserve style and nuance; fix minor grammar, keep formatting."
+    },
+    "custom_overrides": {
+      "only_translate": "You are a professional translator. Translate strictly into {{TARGET_LANG}}. Keep meaning, tone, numbers, names, correct sentence, code. No extra commentary.",
+      "prompt_translator": "Act as a prompt translator. Convert the user text into a clear, concise {{TARGET_LANG}} prompt for an AI model. Keep intent, correct sentence, constraints, and structure."
+    },
+    "thinking_enabled": false
+  }
+}

@@ -1,0 +1,508 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+  background-color: #f8f9fa;
+  padding: 0; /* Remove padding from body */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.main-container {
+  width: 100%;
+  max-width: 1800px; /* Set overall max-width for the content */
+  padding: 20px; /* Add padding to the container */
+}
+
+.top-bar {
+  width: 100%;
+  /* max-width will be handled by .main-container */
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center;
+  margin-bottom: 8px; /* Reduced gap between top-bar and main-container */
+  position: static; /* Remove relative positioning */
+  padding: 10px 20px; /* Add padding for desktop */
+}
+
+.top-bar button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #5f6368;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+  margin-top: 0; /* Remove top margin */
+  margin-right: 0; /* Remove right margin */
+}
+
+.top-bar button:hover {
+  background-color: #e8f0fe;
+}
+
+.language-bar {
+  width: 100%;
+  /* max-width will be handled by .main-container */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  margin-bottom: 16px;
+  color: #5f6368;
+}
+
+select#savedModelsDropdown {
+  padding: 8px 12px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 15px;
+  color: #202124;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  appearance: none; /* Remove default browser styling */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292%22%20height%3D%22292%22%3E%3Cpath%20fill%3D%22%235f6368%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095.1a17.6%2017.6%200%200%200%205.4-12.9c0-5-1.8-9.4-5.4-13z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 12px;
+}
+
+select#savedModelsDropdown:hover {
+  border-color: #1a73e8;
+}
+
+select#savedModelsDropdown:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+}
+
+.models-center {
+  position: static; /* Ensure static positioning */
+  left: auto;
+  transform: none;
+  top: auto;
+  width: auto; /* Let content define width */
+  margin-right: 0; /* Remove margin as gap is handled by parent */
+}
+
+.model-settings-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #dadce0; /* Add border */
+  border-radius: 8px;
+  padding: 4px 8px; /* Add some padding inside the group */
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.1), 0 1px 2px rgba(60, 64, 67, 0.08);
+  gap: 5px; /* Reduced gap between dropdown and button */
+}
+
+.language-bar .language-label {
+  text-align: left;
+  flex-grow: 1;
+}
+
+.language-bar span {
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.language-bar span:hover {
+  background-color: #f1f3f4;
+}
+
+.language-bar span.active-lang {
+  color: #1a73e8;
+  font-weight: 500;
+}
+
+.language-selection-mobile {
+  display: none; /* Hidden by default */
+  padding: 10px 0;
+  text-align: left;
+}
+
+.language-selection-mobile .language-label {
+  margin-bottom: 5px;
+}
+
+.target-languages-mobile span {
+  padding: 5px 8px;
+  font-size: 14px;
+}
+
+.target-languages-mobile span.active-lang {
+  color: #1a73e8;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .top-bar {
+    display: flex;
+    flex-direction: row; /* Arrange items horizontally */
+    justify-content: center; /* Center items */
+    align-items: center; /* Vertically align items */
+    position: static; /* Ensure static positioning */
+    padding: 10px 10px; /* Add padding for mobile top bar */
+  }
+
+  .top-bar button {
+    position: static; /* Ensure static positioning for mobile */
+    top: auto;
+    right: auto;
+    margin: 0; /* Ensure no default margins */
+  }
+
+  .models-center {
+    position: static; /* Ensure static positioning for mobile */
+    transform: none; /* Remove transform for mobile */
+    width: auto; /* Let content define width */
+    text-align: center; /* Center its content */
+    margin-bottom: 0; /* Remove bottom margin */
+    margin-right: 5px; /* Reduced space between dropdown and button */
+  }
+
+  .language-bar {
+    display: none; /* Hide desktop language bar */
+  }
+
+  .language-selection-mobile {
+    display: block; /* Show mobile language selection */
+  }
+
+  .panel-left .language-label {
+    padding: 10px 16px 0;
+  }
+
+  .panel-right .language-selection-mobile {
+    padding: 10px 16px;
+  }
+
+  .main-container {
+    padding: 10px; /* Adjust padding for mobile */
+    margin: 0 auto; /* Center main-container on mobile */
+  }
+}
+
+.translator-box {
+  display: flex;
+  width: 100%;
+  /* max-width will be handled by .main-container */
+  min-height: 280px;
+  background: none; /* Removed background from translator-box */
+  border: none; /* Removed border from translator-box */
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: none; /* Removed box-shadow from translator-box */
+  gap: 16px; /* Added space between panels */
+  padding: 0; /* Removed padding from the box itself */
+}
+
+.panel {
+  flex: 1; /* Use flex-grow to distribute space */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel textarea {
+  width: 100%;
+  flex-grow: 1;
+  border: none;
+  padding: 16px;
+  font-size: 18px;
+  resize: vertical; /* Allow vertical resizing */
+  overflow-y: auto; /* Add scrollbar if content exceeds height */
+  min-height: 100px; /* Set a minimum height */
+  outline: none;
+  font-family: 'Roboto', Arial, sans-serif;
+  color: #202124;
+}
+
+@media (max-width: 768px) {
+  .panel textarea {
+    min-height: 150px; /* Increased minimum height for mobile */
+  }
+}
+
+.panel-left {
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3), 0 1px 2px rgba(60, 64, 67, 0.15);
+  overflow: hidden; /* Ensure content respects border-radius */
+}
+
+.panel-right {
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  background: #f8f9fa;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3), 0 1px 2px rgba(60, 64, 67, 0.15);
+  overflow: hidden; /* Ensure content respects border-radius */
+}
+
+.copy-btn {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  font-size: 18px;
+  background: none;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #5f6368;
+  transition: background-color 0.3s;
+}
+
+.copy-btn:hover {
+  background-color: #f1f3f4;
+}
+
+.char-count {
+  position: absolute;
+  bottom: 12px;
+  left: 16px;
+  font-size: 13px;
+  color: #70757a;
+}
+
+.divider {
+  display: none; /* Hide the divider as gap is handled by flexbox */
+}
+
+.switch-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border: 1px solid #dadce0;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3), 0 1px 2px rgba(60, 64, 67, 0.15);
+  transition: background-color 0.3s, border-color 0.3s;
+  color: #5f6368;
+}
+
+@media (max-width: 768px) {
+  .translator-box {
+    flex-direction: column;
+    max-width: 90%;
+    padding: 10px;
+    margin: 0 auto; /* Center the translator-box horizontally */
+  }
+
+  .panel {
+    width: 100%;
+  }
+
+  .panel-left {
+    border-right: 1px solid #dadce0; /* Re-add border for mobile to separate panels */
+    border-bottom: 1px solid #dadce0;
+  }
+
+  .switch-btn {
+    position: static;
+    transform: none;
+    margin: 10px auto;
+  }
+}
+
+.switch-btn:hover {
+  background-color: #f1f3f4;
+  border-color: #c5c5c5;
+}
+
+.translate-btn {
+  margin: 24px auto 0;
+  display: block;
+  padding: 10px 24px;
+  font-size: 16px;
+  background: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.translate-btn:hover {
+  background-color: #1565c0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Styling */
+.modal {
+  display: none; /* Ensure it's hidden by default */
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex; /* Use flexbox for centering */
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* Start with opacity 0 */
+  transition: opacity 0.3s ease-in-out; /* Add transition for smooth fade */
+}
+
+.modal.show {
+  opacity: 1; /* Fade in when 'show' class is added */
+}
+
+.modal-content {
+  background: white;
+  width: 90%;
+  max-width: 450px;
+  padding: 24px;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #202124;
+  font-size: 22px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #5f6368;
+}
+
+/* New Tab Styles */
+.modal-tabs {
+  display: flex;
+  border-bottom: 1px solid #dadce0;
+  margin-bottom: 24px;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 15px;
+  color: #5f6368;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px; /* Aligns the bottom border with the container's border */
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.tab-button:hover {
+  background-color: #f1f3f4;
+  color: #202124;
+}
+
+.tab-button.active {
+  color: #1a73e8;
+  border-bottom-color: #1a73e8;
+  font-weight: 500;
+}
+
+
+.modal-content label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #5f6368;
+}
+
+.modal-content select,
+.modal-content input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.modal-content select:focus,
+.modal-content input[type="text"]:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+}
+/* Styles for the output content div (replaces textarea) */
+.output-content {
+  width: 100%;
+  flex-grow: 1;
+  border: none;
+  padding: 16px;
+  font-size: 18px;
+  overflow-y: auto; /* Add scrollbar if content exceeds height */
+  min-height: 100px; /* Set a minimum height */
+  outline: none;
+  font-family: 'Roboto', Arial, sans-serif;
+  color: #202124;
+  white-space: pre-wrap; /* Preserve whitespace and allow wrapping */
+  word-wrap: break-word; /* Break long words */
+}
+
+/* Styles for the <think> tag */
+think {
+  display: block; /* Make it a block element */
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  user-select: none; /* Prevent text selection on click */
+  position: relative;
+  overflow: hidden; /* Hide overflow when collapsed */
+}
+
+think::before {
+  content: 'Thinking... (Click to expand)';
+  font-weight: bold;
+  color: #555;
+  display: block;
+  margin-bottom: 0;
+}
+
+think.expanded::before {
+  content: 'Thinking... (Click to collapse)';
+}
+
+think > .think-content {
+  display: none; /* Hidden by default */
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px dashed #ddd;
+}
+
+think.expanded > .think-content {
+  display: block; /* Show when expanded */
+}
