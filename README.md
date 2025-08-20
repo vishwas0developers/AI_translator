@@ -1,27 +1,26 @@
-# General Text Translator
+# AI-Powered General Text Translator
 
-The General Text Translator is a web application designed to provide a simple and efficient way to translate text between various languages using different AI-powered translation engines. A key feature of this application is the "System Promoter," which refines input text into optimized prompts while preserving the original meaning, enhancing the quality of translations.
+The AI-Powered General Text Translator is a versatile web application designed for seamless text translation across multiple languages using various cutting-edge AI models. It features a unique "System Promoter" that refines input text into optimized prompts, ensuring higher quality and more accurate translations while preserving the original meaning.
 
-## Features
+## Key Features:
 
-*   **Multi-Engine Support:** Translate text using OpenAI, Gemini, OpenRouter, Ollama, and LM Studio AI translation engines.
-*   **Configurable API Settings:** Easily set your preferred default translation engine and manage API keys, with settings persisting across sessions.
-*   **Automatic Language Detection:** Real-time detection of the source language for input text.
-*   **System Promoter:** Automatically corrects grammatical errors and rephrases input text into optimized prompts for AI translation, ensuring meaning preservation.
-*   **User-Friendly Interface:** A clear and intuitive web interface for seamless text input, language selection, and translated output display.
-*   **Copy & Swap Functionality:** Convenient buttons to copy translated text and swap input/output languages.
-*   **Character Count:** Displays the character count of the input text.
+*   **Multi-Engine Support:** Translate text using popular AI translation engines including OpenAI, Gemini, OpenRouter, Ollama, and LM Studio.
+*   **Configurable API Settings:** Easily manage and persist API keys and default translation engine settings directly within the application.
+*   **Automatic Language Detection:** Real-time detection of the source language for efficient input processing.
+*   **Intelligent System Promoter:** Automatically corrects grammatical errors and rephrases input text into optimized prompts for AI models, enhancing translation quality.
+*   **User-Friendly Interface:** An intuitive and clean web interface for effortless text input, language selection, and display of translated output.
+*   **Convenient Functionality:** Includes copy-to-clipboard and language swap buttons for enhanced usability, along with a real-time character counter.
 
-## Setup Instructions
+## Setup Instructions:
 
-To set up and run the General Text Translator locally, follow these steps:
+To set up and run the AI-Powered General Text Translator locally, follow these steps:
 
-### Prerequisites
+### Prerequisites:
 
 *   Python 3.x
 *   `pip` (Python package installer)
 
-### Installation
+### Installation:
 
 1.  **Clone the repository:**
     ```bash
@@ -50,7 +49,7 @@ To set up and run the General Text Translator locally, follow these steps:
     pip install -r requirements.txt
     ```
 
-### Configuration
+### Configuration:
 
 1.  **API Keys:** The application uses `config/api_config.json` to store API configurations. You will need to obtain API keys for your desired translation engines (OpenAI, Gemini, OpenRouter).
     *   An example `api_config.json` might look like this:
@@ -95,7 +94,7 @@ To set up and run the General Text Translator locally, follow these steps:
         ```
     *   Update the `api_key` values in `config/api_config.json` with your actual keys. For Ollama and LM Studio, API keys are typically not required if running locally. You can also manage these settings via the application's UI.
 
-### Running the Application
+### Running the Application:
 
 1.  **Start the Flask server:**
     ```bash
@@ -105,7 +104,7 @@ To set up and run the General Text Translator locally, follow these steps:
 2.  **Access the application:**
     Open your web browser and navigate to `http://127.0.0.1:5000/`.
 
-## Usage
+## Usage:
 
 1.  **Input Text:** Type or paste the text you want to translate into the input area.
 2.  **Language Detection:** The application will automatically detect the source language.
@@ -115,7 +114,7 @@ To set up and run the General Text Translator locally, follow these steps:
 6.  **System Promoter:** Your input text will be automatically corrected and rephrased into an optimized prompt before translation.
 7.  **Copy/Swap:** Use the provided buttons to copy the translated text or swap the input and output languages.
 
-## Project Structure
+## Project Structure:
 
 ```
 .
@@ -126,6 +125,8 @@ To set up and run the General Text Translator locally, follow these steps:
 ├── requirements.txt        # Python dependencies
 ├── run.bat                 # Windows batch script to run the app
 ├── setup.bat               # Windows batch script for setup
+├── run.sh                  # Linux shell script to run the app
+├── setup.sh                # Linux shell script for setup
 ├── Translate.png           # Screenshot/Image
 ├── Workflow_Diagram.png    # Workflow diagram image
 ├── config/
@@ -138,11 +139,11 @@ To set up and run the General Text Translator locally, follow these steps:
     └── index.html          # Frontend HTML template
 ```
 
-## Contributing
+## Contributing:
 
 Contributions are welcome! Please feel free to fork the repository, create a new branch, and submit a pull request.
 
-## License
+## License:
 
 This project is open-source and available under the [MIT License](LICENSE).
 *(Note: You may need to create a `LICENSE` file if you don't have one.)*
